@@ -28,12 +28,23 @@ namespace BoardGame
         {
             int totalPlayers = 4;
             string [] playernames = new string[totalPlayers];
+            int actualPlayer = 0;
+
+
             for( int i = 0; i<totalPlayers; i++)
             {
-               Console.WriteLine($"Enter your name Player{i+1}:");
-               playernames[i] = Console.ReadLine();
+               Console.WriteLine($"Enter your name Player{i+1} (or press 'q' to stop): ");
+               string input = Console.ReadLine();
+               if(input.ToLower() == "q")
+               {
+                   break;
+               }
+               playernames[i] = input;
+               actualPlayer++;
                Console.WriteLine("Welcome to the game "+playernames[i]+"!");
+
             }
+            Console.WriteLine($"Total players joined: {actualPlayer}");
         }
         public static void Start()
     {
