@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 namespace BoardGame
 {
@@ -21,12 +22,35 @@ namespace BoardGame
         }
     } 
 
+    static class PlayerTurn
+    {
+        public static void PlayerName(string playerName = "")
+        {
+            int totalPlayers = 4;
+            string [] playernames = new string[totalPlayers];
+            for( int i = 0; i<totalPlayers; i++)
+            {
+               Console.WriteLine($"Enter your name Player{i+1}:");
+               playernames[i] = Console.ReadLine();
+               Console.WriteLine("Welcome to the game "+playernames[i]+"!");
+            }
+        }
+        public static void Start()
+    {
+        // Placeholder for future implementation of player turns
+    }
+    }
+    
+
     class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Board Game!");
+            PlayerTurn.PlayerName();
             RollDice.Roll();  
+            
+        
         }
     }
 }
